@@ -28,18 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btSoloClose = new Button();
             SuspendLayout();
             // 
-            // Form2
+            // btSoloClose
+            // 
+            btSoloClose.Location = new Point(37, 27);
+            btSoloClose.Name = "btSoloClose";
+            btSoloClose.Size = new Size(94, 29);
+            btSoloClose.TabIndex = 0;
+            btSoloClose.Text = "CERRAR";
+            btSoloClose.UseVisualStyleBackColor = true;
+            btSoloClose.Click += btSoloClose_Click;
+            // 
+            // gSolo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 574);
-            Name = "Form2";
-            Text = "Form2";
+            Controls.Add(btSoloClose);
+            Name = "gSolo";
+            Text = "gSolo";
+            Load += gSolo_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btSoloClose;
     }
 }

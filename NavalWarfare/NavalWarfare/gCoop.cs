@@ -16,5 +16,11 @@ namespace NavalWarfare
         {
             InitializeComponent();
         }
+
+        private void btCoopClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.mainMenu.Show();
+        }
     }
 }

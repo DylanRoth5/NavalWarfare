@@ -22,18 +22,18 @@ namespace NavalWarfare
             coop = new gCoop();
             Application.Run(mainMenu);
 
-            soloOK = false;
-            coopOK = false;
-            //aca iria la conexion con la BD
-            if (soloOK)
-            {
-                Application.Run(new gSolo()); //run solo
-            }
+            //soloOK = false;
+            //coopOK = false;
+            ////aca iria la conexion con la BD
+            //if (soloOK)
+            //{
+            //    Application.Run(new gSolo()); //run solo
+            //}
             
-            if (coopOK) 
-            { 
-                //run coop 
-            }
+            //if (coopOK) 
+            //{ 
+            //    //run coop 
+            //}
         }
     }
 }

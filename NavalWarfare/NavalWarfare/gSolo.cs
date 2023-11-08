@@ -18,6 +18,16 @@ namespace NavalWarfare
         }
         private void btSoloBack_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void gSolo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btSoloClose_Click(object sender, EventArgs e)
+        {
             this.Hide();
             Program.mainMenu.Show();
         }

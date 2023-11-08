@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btCoopClose = new Button();
             SuspendLayout();
+            // 
+            // btCoopClose
+            // 
+            btCoopClose.Location = new Point(23, 30);
+            btCoopClose.Name = "btCoopClose";
+            btCoopClose.Size = new Size(94, 29);
+            btCoopClose.TabIndex = 0;
+            btCoopClose.Text = "CERRAR";
+            btCoopClose.UseVisualStyleBackColor = true;
+            btCoopClose.Click += btCoopClose_Click;
             // 
             // gCoop
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 578);
+            Controls.Add(btCoopClose);
             Name = "gCoop";
             Text = "gCoop";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btCoopClose;
     }
 }
