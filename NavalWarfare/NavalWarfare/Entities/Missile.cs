@@ -8,5 +8,6 @@ namespace NavalWarfare.Entities
 {
     internal class Missile
     {
+        
     }
 }

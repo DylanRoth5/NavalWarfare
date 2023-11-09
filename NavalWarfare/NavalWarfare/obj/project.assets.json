@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\teofu\\OneDrive\\Documentos\\2° Año Cuatrimestre 2\\Programación II\\Code\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
+      "projectUniqueName": "C:\\Users\\teofu\\OneDrive\\Documentos\\GitHub\\BlackBox-Proyect-One\\BB-Proyect-Two\\NavalWarfare\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
       "projectName": "NavalWarfare",
-      "projectPath": "C:\\Users\\teofu\\OneDrive\\Documentos\\2° Año Cuatrimestre 2\\Programación II\\Code\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
+      "projectPath": "C:\\Users\\teofu\\OneDrive\\Documentos\\GitHub\\BlackBox-Proyect-One\\BB-Proyect-Two\\NavalWarfare\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
       "packagesPath": "C:\\Users\\teofu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\teofu\\OneDrive\\Documentos\\2° Año Cuatrimestre 2\\Programación II\\Code\\NavalWarfare\\NavalWarfare\\obj\\",
+      "outputPath": "C:\\Users\\teofu\\OneDrive\\Documentos\\GitHub\\BlackBox-Proyect-One\\BB-Proyect-Two\\NavalWarfare\\NavalWarfare\\NavalWarfare\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\teofu\\AppData\\Roaming\\NuGet\\NuGet.Config",
