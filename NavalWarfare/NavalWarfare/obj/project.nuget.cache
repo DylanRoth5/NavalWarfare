@@ -4,5 +4,12 @@
   "success": true,
   "projectFilePath": "C:\\Users\\teofu\\OneDrive\\Documentos\\GitHub\\BlackBox-Proyect-One\\BB-Proyect-Two\\NavalWarfare\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\teofu\\OneDrive\\Documentos\\GitHub\\BlackBox-Proyect-One\\BB-Proyect-Two\\NavalWarfare\\NavalWarfare\\NavalWarfare\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

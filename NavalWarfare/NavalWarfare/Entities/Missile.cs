@@ -1,13 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace NavalWarfare.Entities;
 
-namespace NavalWarfare.Entities
+public class Missile
 {
-    internal class Missile
+    public static int Id;
+    public string Skin = "  \u2591";
+    public static string Skin2 = "  \u2591";
+    public int XPos;
+    public int YPos;
+    public Player Gamer;
+
+    public Missile(int id, int x,int y,Player gamer)
     {
-        
+        Id = id;
+        XPos = x;
+        YPos = y;
+        Gamer = gamer;
+    }
+    public Missile(int x,int y,Player gamer)
+    {
+        XPos = x;
+        YPos = y;
+        Gamer = gamer;
     }
 }
