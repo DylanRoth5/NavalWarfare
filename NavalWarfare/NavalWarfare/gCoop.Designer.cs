@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             btCoopClose = new Button();
+            panel1 = new Panel();
+            btCoopStart = new Button();
             SuspendLayout();
             // 
             // btCoopClose
@@ -41,11 +43,30 @@
             btCoopClose.UseVisualStyleBackColor = true;
             btCoopClose.Click += btCoopClose_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.CornflowerBlue;
+            panel1.Location = new Point(174, 37);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1068, 508);
+            panel1.TabIndex = 1;
+            // 
+            // btCoopStart
+            // 
+            btCoopStart.Location = new Point(23, 111);
+            btCoopStart.Name = "btCoopStart";
+            btCoopStart.Size = new Size(94, 29);
+            btCoopStart.TabIndex = 2;
+            btCoopStart.Text = "START";
+            btCoopStart.UseVisualStyleBackColor = true;
+            // 
             // gCoop
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 578);
+            Controls.Add(btCoopStart);
+            Controls.Add(panel1);
             Controls.Add(btCoopClose);
             Name = "gCoop";
             Text = "gCoop";
@@ -55,5 +76,7 @@
         #endregion
 
         private Button btCoopClose;
+        private Panel panel1;
+        private Button btCoopStart;
     }
 }
