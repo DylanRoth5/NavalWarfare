@@ -22,5 +22,11 @@ namespace NavalWarfare
             this.Hide();
             Program.mainMenu.Show();
         }
+
+        private void btCoopStart_Click(object sender, EventArgs e)
+        {
+            //cree la matriz en el panles con sus respetivos barcos. cuando apretas una posicion te dice si le pegaste a un barco o no
+            // si le pegas a todos los barcos en el mapa ganas el juego
+        }
     }
 }

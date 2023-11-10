@@ -59,6 +59,7 @@
             btCoopStart.TabIndex = 2;
             btCoopStart.Text = "START";
             btCoopStart.UseVisualStyleBackColor = true;
+            btCoopStart.Click += btCoopStart_Click;
             // 
             // gCoop
             // 
