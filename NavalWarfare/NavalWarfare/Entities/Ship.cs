@@ -3,29 +3,26 @@ namespace NavalWarfare.Entities;
 public class Ship
 {
     public static int Id;
-    public string Skin = "  █";
-    public static string Skin2 = "  █";
+    public int Skin = 1;
+    public static int Skin2 = 1;
     public int XPos;
     public int YPos;
     public int Lenght;
     public int Height;
-    public Player Gamer;
 
-    public Ship(int id, int x,int y, int lenght, int height,Player gamer)
+    public Ship(int id, int x,int y, int lenght, int height)
     {
         Id = id;
         XPos = x;
         YPos = y;
         Lenght = lenght;
         Height = height;
-        Gamer = gamer;
     }
-    public Ship(int x,int y, int lenght, int height,Player gamer)
+    public Ship(int x,int y, int lenght, int height)
     {
         XPos = x;
         YPos = y;
         Lenght = lenght;
         Height = height;
-        Gamer = gamer;
     }
 }

@@ -3,23 +3,20 @@ namespace NavalWarfare.Entities;
 public class Missile
 {
     public static int Id;
-    public string Skin = "  \u2591";
-    public static string Skin2 = "  \u2591";
+    public int Skin = 2;
+    public static int Skin2 = 2;
     public int XPos;
     public int YPos;
-    public Player Gamer;
 
-    public Missile(int id, int x,int y,Player gamer)
+    public Missile(int id, int x,int y )
     {
         Id = id;
         XPos = x;
         YPos = y;
-        Gamer = gamer;
     }
-    public Missile(int x,int y,Player gamer)
+    public Missile(int x,int y)
     {
         XPos = x;
         YPos = y;
-        Gamer = gamer;
     }
 }
