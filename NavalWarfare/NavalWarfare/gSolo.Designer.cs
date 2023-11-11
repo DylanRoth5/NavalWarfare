@@ -285,9 +285,10 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(661, 208);
+            label7.Font = new Font("OCR A Extended", 60F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(500, 208);
             label7.Name = "label7";
-            label7.Size = new Size(38, 15);
+            label7.Size = new Size(323, 83);
             label7.TabIndex = 16;
             label7.Text = "label7";
             label7.Visible = false;
