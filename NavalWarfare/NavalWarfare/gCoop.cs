@@ -29,7 +29,7 @@ namespace NavalWarfare
         {
             foreach (var button in shipPossitionButtons) { button.Visible = false; }
             ReiniciarCronometro();
-            this.Hide();
+            Hide();
             Program.mainMenu.Show();
         }
 

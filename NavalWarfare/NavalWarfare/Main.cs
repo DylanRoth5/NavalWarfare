@@ -5,6 +5,7 @@ namespace NavalWarfare
         public Main()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
         }
         private void lbTitle_Click(object sender, EventArgs e)
         {
@@ -14,13 +15,13 @@ namespace NavalWarfare
         private void btSolo_Click(object sender, EventArgs e)
         {
             Program.solo.Show();
-            this.Hide();
+            Hide();
         }
 
         private void btCoop_Click(object sender, EventArgs e)
         {
             Program.coop.Show();
-            this.Hide();
+            Hide();
         }
     }
 }

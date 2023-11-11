@@ -20,6 +20,8 @@ namespace NavalWarfare
         public gSolo()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
         private void btSoloBack_Click(object sender, EventArgs e)
         {
@@ -314,9 +316,10 @@ namespace NavalWarfare
             shipPanel.Visible = true;
             
             // Configurar el tamaño de los paneles según el tamaño de los mapas
-            int height = 40;
-            int width = 40;
+            var height = Size.Width/ (17+eMap.Size);
+            var width = Size.Width/(17+eMap.Size);
             ePanel.Size = new Size(width * eMap.Size+ 20, height * eMap.Size + 20);
+            pPanel.Left = ePanel.Left +width * eMap.Size + 20;
             pPanel.Size = new Size(width * pMap.Size+ 20, height * pMap.Size + 20);
             
             // Inicializar contadores de barcos según los valores de los controles numericos
