@@ -64,22 +64,23 @@ namespace NavalWarfare
                     int[] coords2 = { int.Parse(temp2[0]),int.Parse(temp2[1]) };
                     
                     // Cambiar el color del botón según el valor en la matriz del mapa del enemigo
-                    switch (eMap.Matrix[coords2[0], coords2[1]])
+                    if (eMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
                     {
-                        case 1:
-                            butn.BackColor = Color.Cyan;
-                            break;
-                        case 2:
-                            butn.BackColor = Color.Red;
-                            butn.Enabled = false;
-                            break;
-                        case 3:
-                            butn.BackColor = Color.Blue;
-                            butn.Enabled = false;
-                            break;
-                        default:
-                            butn.BackColor = Color.Cyan;
-                            break;
+                        butn.BackColor = Color.Cyan;
+                    }
+                    else if (eMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
+                    {
+                        butn.BackColor = Color.Red;
+                        butn.Enabled = false;
+                    }
+                    else if (eMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
+                    {
+                        butn.BackColor = Color.Blue;
+                        butn.Enabled = false;
+                    }
+                    else
+                    {
+                        butn.BackColor = Color.Cyan;
                     }
                 }
                 
@@ -112,22 +113,23 @@ namespace NavalWarfare
                     int[] coords2 = { int.Parse(temp2[0]),int.Parse(temp2[1]) };
                     
                     // Cambiar el color del botón según el valor en la matriz del mapa del jugador
-                    switch (pMap.Matrix[coords2[0], coords2[1]])
+                    if (pMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
                     {
-                        case 1:
-                            butn.BackColor = Color.Black;
-                            break;
-                        case 2:
-                            butn.BackColor = Color.Red;
-                            butn.Enabled = false;
-                            break;
-                        case 3:
-                            butn.BackColor = Color.Blue;
-                            butn.Enabled = false;
-                            break;
-                        default:
-                            butn.BackColor = Color.Cyan;
-                            break;
+                        butn.BackColor = Color.Black;
+                    }
+                    else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
+                    {
+                        butn.BackColor = Color.Red;
+                        butn.Enabled = false;
+                    }
+                    else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
+                    {
+                        butn.BackColor = Color.Blue;
+                        butn.Enabled = false;
+                    }
+                    else
+                    {
+                        butn.BackColor = Color.Cyan;
                     }
                 }
             }
@@ -203,12 +205,14 @@ namespace NavalWarfare
                 {
                     var temp2 = butn.Name.Split(';');
                     int[] coords2 = { int.Parse(temp2[0]),int.Parse(temp2[1]) };
-                    butn.BackColor = pMap.Matrix[coords2[0], coords2[1]] switch
-                    {
-                        1 => Color.Black,
-                        2 => Color.Red,
-                        _ => Color.Cyan
-                    };
+                    if (pMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
+                        butn.BackColor = Color.Black;
+                    else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
+                        butn.BackColor = Color.Red;
+                    else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
+                        butn.BackColor = Color.Blue;
+                    else
+                        butn.BackColor = Color.Cyan;
                 }
                 if (biggerShip == 0 && bigShip == 0 && normalShip == 0 && smolShip == 0)
                 {

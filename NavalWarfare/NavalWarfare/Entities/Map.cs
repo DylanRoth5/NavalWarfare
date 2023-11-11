@@ -1,13 +1,9 @@
-using System.Drawing;
-using static System.ConsoleColor;
-using static NavalWarfare.HelperSeal.Tools;
-
 namespace NavalWarfare.Entities;
 
 public class Map
 {
-    public int Id;
-    public readonly static int Spot = 0;
+    public static int Id;
+    public static int Water = 0;
     public int[,] Matrix;
     public int Size;
 

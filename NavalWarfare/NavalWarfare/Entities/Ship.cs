@@ -3,12 +3,11 @@ namespace NavalWarfare.Entities;
 public class Ship
 {
     public static int Id;
-    public int Skin = 1;
-    public static int Skin2 = 1;
-    public int XPos;
-    public int YPos;
-    public int Lenght;
-    public int Height;
+    public static int Here = 1;
+    public static int XPos;
+    public static int YPos;
+    public static int Lenght;
+    public static int Height;
 
     public Ship(int id, int x,int y, int lenght, int height)
     {

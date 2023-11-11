@@ -3,10 +3,10 @@ namespace NavalWarfare.Entities;
 public class Missile
 {
     public static int Id;
-    public int Skin = 2;
-    public static int Skin2 = 2;
-    public int XPos;
-    public int YPos;
+    public static int Hit = 2;
+    public static int Sunk = 3;
+    public static int XPos;
+    public static int YPos;
 
     public Missile(int id, int x,int y )
     {
