@@ -1,3 +1,5 @@
+using NavalWarfare2._0.Forms;
+
 namespace NavalWarfareV2;
 
 internal static class Program
@@ -6,17 +8,17 @@ internal static class Program
     ///  The main entry point for the application.
     /// </summary>
     /// 
-    public static MainMenu mainMenu;
+    public static MainMenu? mainMenu;
 
-    public static Classic clasic;
-    public static TimeRush timeRush;
+    public static Classic? classic;
+    public static TimeRush? timeRush;
 
     [STAThread]
     private static void Main()
     {
         ApplicationConfiguration.Initialize();
         mainMenu = new MainMenu();
-        clasic = new Classic();
+        classic = new Classic();
         timeRush = new TimeRush();
         Application.Run(mainMenu);
     }

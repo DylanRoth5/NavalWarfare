@@ -1,7 +1,8 @@
-﻿using NavalWarfareV2.Controllers;
-using NavalWarfareV2.Entities;
+﻿using NavalWarfare2._0.Controllers;
+using NavalWarfare2._0.Entities;
+using NavalWarfareV2;
 
-namespace NavalWarfareV2;
+namespace NavalWarfare2._0.Forms;
 
 public partial class Classic : Form
 {
@@ -12,33 +13,29 @@ public partial class Classic : Form
     }
 
     // Mapas para el jugador y el enemigo
-    public static Map eMap;
-    public static Map pMap;
+    private static Map? _eMap;
+    private static Map? _pMap;
 
     // Variable que indica si la orientación de los barcos es horizontal
-    public static bool isHorizontal = true;
+    private static bool _isHorizontal = true;
 
     // Contadores para el número de barcos de diferentes tamaños
-    public static int smolShip;
-    public static int normalShip;
-    public static int bigShip;
-    public static int biggerShip;
+    private static int _smolShip;
+    private static int _normalShip;
+    private static int _bigShip;
+    private static int _biggerShip;
 
     // Variables que indican si se está colocando un barco de cierto tamaño
-    public static bool placingSmal;
-    public static bool placingNormal;
-    public static bool placingBig;
-    public static bool placingBigger;
+    private static bool _placingSmal;
+    private static bool _placingNormal;
+    private static bool _placingBig;
+    private static bool _placingBigger;
 
     // Variable que indica si se está llevando a cabo un ataque
-    public static bool atacking;
+    private static bool _atacking;
 
     // Variable que indica si el juego está en curso
-    public static bool gaming;
-
-    private void btSoloBack_Click(object sender, EventArgs e)
-    {
-    }
+    private static bool _gaming;
 
     private void gSolo_Load(object sender, EventArgs e)
     {
@@ -47,14 +44,14 @@ public partial class Classic : Form
     private void btSoloClose_Click(object sender, EventArgs e)
     {
         Hide();
-        Program.mainMenu.Show();
+        Program.mainMenu!.Show();
     }
 
     private void label2_Click(object sender, EventArgs e)
     {
     }
 
-    public void btnCoord_Click(object sender, EventArgs e)
+    private void btnCoord_Click(object sender, EventArgs e)
     {
         // Obtener el botón que activó el evento
         var btn = (Button)sender;
@@ -67,7 +64,7 @@ public partial class Classic : Form
         if (btn.Parent == ePanel)
         {
             // Lanzar un misil en las coordenadas especificadas en el mapa del enemigo
-            eMap = IMap.LaunchMisile(coords[0], coords[1], eMap);
+            _eMap = IMap.launchMissile(coords[0], coords[1], _eMap);
 
             // Actualizar la representación visual del mapa del enemigo
             foreach (Button butn in ePanel.Controls)
@@ -76,16 +73,16 @@ public partial class Classic : Form
                 int[] coords2 = { int.Parse(temp2[0]), int.Parse(temp2[1]) };
 
                 // Cambiar el color del botón según el valor en la matriz del mapa del enemigo
-                if (eMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
+                if (_eMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
                 {
                     butn.BackColor = Color.Cyan;
                 }
-                else if (eMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
+                else if (_eMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
                 {
                     butn.BackColor = Color.Red;
                     butn.Enabled = false;
                 }
-                else if (eMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
+                else if (_eMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
                 {
                     butn.BackColor = Color.Blue;
                     butn.Enabled = false;
@@ -98,16 +95,16 @@ public partial class Classic : Form
 
             // Generar coordenadas aleatorias para el lanzamiento de misiles del enemigo
             var r = new Random();
-            var eX = r.Next(0, eMap.Size);
-            var eY = r.Next(0, eMap.Size);
+            var eX = r.Next(0, _eMap.Size);
+            var eY = r.Next(0, _eMap.Size);
             // Verificar que no se haya lanzado un misil previamente en esas coordenadas
             var attempt = 0;
-            var bombed = IMap.isBombed(eX, eY, pMap);
+            var bombed = IMap.isBombed(eX, eY, _pMap);
             while (bombed)
             {
-                eX = r.Next(0, eMap.Size - 1);
-                eY = r.Next(0, eMap.Size - 1);
-                bombed = IMap.isBombed(eX, eY, pMap);
+                eX = r.Next(0, _eMap.Size - 1);
+                eY = r.Next(0, _eMap.Size - 1);
+                bombed = IMap.isBombed(eX, eY, _pMap);
                 attempt++;
 
                 // Salir del bucle si se encuentra una posición válida o después de 50 intentos
@@ -116,7 +113,7 @@ public partial class Classic : Form
             }
 
             // Lanzar un misil en las coordenadas aleatorias en el mapa del jugador
-            pMap = IMap.LaunchMisile(eX, eY, pMap);
+            _pMap = IMap.launchMissile(eX, eY, _pMap);
 
             // Actualizar la representación visual del mapa del jugador
             foreach (Button butn in pPanel.Controls)
@@ -125,16 +122,16 @@ public partial class Classic : Form
                 int[] coords2 = { int.Parse(temp2[0]), int.Parse(temp2[1]) };
 
                 // Cambiar el color del botón según el valor en la matriz del mapa del jugador
-                if (pMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
+                if (_pMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
                 {
                     butn.BackColor = Color.Black;
                 }
-                else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
+                else if (_pMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
                 {
                     butn.BackColor = Color.Red;
                     butn.Enabled = false;
                 }
-                else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
+                else if (_pMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
                 {
                     butn.BackColor = Color.Blue;
                     butn.Enabled = false;
@@ -149,63 +146,63 @@ public partial class Classic : Form
         else if (btn.Parent == pPanel)
         {
             // ... (código para la colocación de barcos)
-            if (placingSmal)
-                switch (isHorizontal)
+            if (_placingSmal)
+                switch (_isHorizontal)
                 {
-                    case true when coords[0] < pMap.Size - 1:
-                        pMap = IMap.placeShip(coords[0], coords[1], 2, isHorizontal, pMap);
-                        smolShip--;
-                        placingSmal = false;
+                    case true when coords[0] < _pMap!.Size - 1:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 2, _isHorizontal, _pMap);
+                        _smolShip--;
+                        _placingSmal = false;
                         break;
-                    case false when coords[1] < pMap.Size - 1:
-                        pMap = IMap.placeShip(coords[0], coords[1], 2, isHorizontal, pMap);
-                        smolShip--;
-                        placingSmal = false;
+                    case false when coords[1] < _pMap!.Size - 1:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 2, _isHorizontal, _pMap);
+                        _smolShip--;
+                        _placingSmal = false;
                         break;
                 }
 
-            if (placingNormal)
-                switch (isHorizontal)
+            if (_placingNormal)
+                switch (_isHorizontal)
                 {
-                    case true when coords[0] < pMap.Size - 2:
-                        pMap = IMap.placeShip(coords[0], coords[1], 3, isHorizontal, pMap);
-                        normalShip--;
-                        placingNormal = false;
+                    case true when coords[0] < _pMap!.Size - 2:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 3, _isHorizontal, _pMap);
+                        _normalShip--;
+                        _placingNormal = false;
                         break;
-                    case false when coords[1] < pMap.Size - 2:
-                        pMap = IMap.placeShip(coords[0], coords[1], 3, isHorizontal, pMap);
-                        normalShip--;
-                        placingNormal = false;
+                    case false when coords[1] < _pMap!.Size - 2:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 3, _isHorizontal, _pMap);
+                        _normalShip--;
+                        _placingNormal = false;
                         break;
                 }
 
-            if (placingBig)
-                switch (isHorizontal)
+            if (_placingBig)
+                switch (_isHorizontal)
                 {
-                    case true when coords[0] < pMap.Size - 3:
-                        pMap = IMap.placeShip(coords[0], coords[1], 4, isHorizontal, pMap);
-                        bigShip--;
-                        placingBig = false;
+                    case true when coords[0] < _pMap!.Size - 3:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 4, _isHorizontal, _pMap);
+                        _bigShip--;
+                        _placingBig = false;
                         break;
-                    case false when coords[1] < pMap.Size - 3:
-                        pMap = IMap.placeShip(coords[0], coords[1], 4, isHorizontal, pMap);
-                        bigShip--;
-                        placingBig = false;
+                    case false when coords[1] < _pMap!.Size - 3:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 4, _isHorizontal, _pMap);
+                        _bigShip--;
+                        _placingBig = false;
                         break;
                 }
 
-            if (placingBigger)
-                switch (isHorizontal)
+            if (_placingBigger)
+                switch (_isHorizontal)
                 {
-                    case true when coords[0] < pMap.Size - 4:
-                        pMap = IMap.placeShip(coords[0], coords[1], 5, isHorizontal, pMap);
-                        biggerShip--;
-                        placingBigger = false;
+                    case true when coords[0] < _pMap!.Size - 4:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 5, _isHorizontal, _pMap);
+                        _biggerShip--;
+                        _placingBigger = false;
                         break;
-                    case false when coords[1] < pMap.Size - 4:
-                        pMap = IMap.placeShip(coords[0], coords[1], 5, isHorizontal, pMap);
-                        biggerShip--;
-                        placingBigger = false;
+                    case false when coords[1] < _pMap!.Size - 4:
+                        _pMap = IMap.placeShip(coords[0], coords[1], 5, _isHorizontal, _pMap);
+                        _biggerShip--;
+                        _placingBigger = false;
                         break;
                 }
 
@@ -213,17 +210,17 @@ public partial class Classic : Form
             {
                 var temp2 = butn.Name.Split(';');
                 int[] coords2 = { int.Parse(temp2[0]), int.Parse(temp2[1]) };
-                if (pMap.Matrix[coords2[0], coords2[1]] == Ship.Here)
+                if (_pMap!.Matrix[coords2[0], coords2[1]] == Ship.Here)
                     butn.BackColor = Color.Black;
-                else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
+                else if (_pMap.Matrix[coords2[0], coords2[1]] == Missile.Hit)
                     butn.BackColor = Color.Red;
-                else if (pMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
+                else if (_pMap.Matrix[coords2[0], coords2[1]] == Missile.Sunk)
                     butn.BackColor = Color.Blue;
                 else
                     butn.BackColor = Color.Cyan;
             }
 
-            if (biggerShip == 0 && bigShip == 0 && normalShip == 0 && smolShip == 0)
+            if (_biggerShip == 0 && _bigShip == 0 && _normalShip == 0 && _smolShip == 0)
             {
                 button7.Enabled = true;
                 button6.Enabled = false;
@@ -231,32 +228,30 @@ public partial class Classic : Form
         }
 
         // Habilitar/deshabilitar botones de colocación de barcos según la disponibilidad de barcos
-        button2.Enabled = smolShip != 0;
-        button3.Enabled = normalShip != 0;
-        button4.Enabled = bigShip != 0;
-        button5.Enabled = biggerShip != 0;
+        button2.Enabled = _smolShip != 0;
+        button3.Enabled = _normalShip != 0;
+        button4.Enabled = _bigShip != 0;
+        button5.Enabled = _biggerShip != 0;
 
         // Habilitar el panel de barcos si no se está atacando
-        if (!atacking) shipPanel.Enabled = true;
-        if (!atacking) return;
+        if (!_atacking) shipPanel.Enabled = true;
+        if (!_atacking) return;
         // Verificar el resultado del juego
-        if (IMap.HasShips(eMap))
+        if (IMap.hasShips(_eMap))
         {
-            if (!IMap.HasShips(pMap))
-            {
-                // El jugador perdió
-                // ... (código para el mensaje de fin de juego)
-                shipPanel.Visible = false;
-                ePanel.Visible = false;
-                pPanel.Visible = false;
-                label7.Visible = true;
-                label7.Text = "You Lost";
-                button1.Text = "Reset";
-            }
+            if (IMap.hasShips(_pMap)) return;
+            // El jugador perdió
+            // ... (código para el mensaje de fin de juego)
+            shipPanel.Visible = false;
+            ePanel.Visible = false;
+            pPanel.Visible = false;
+            label7.Visible = true;
+            label7.Text = @"You Lost";
+            button1.Text = @"Reset";
         }
         else
         {
-            if (IMap.HasShips(pMap))
+            if (IMap.hasShips(_pMap))
             {
                 // El jugador ganó
                 // ... (código para el mensaje de fin de juego)
@@ -264,8 +259,8 @@ public partial class Classic : Form
                 ePanel.Visible = false;
                 pPanel.Visible = false;
                 label7.Visible = true;
-                label7.Text = "You Won";
-                button1.Text = "Reset";
+                label7.Text = @"You Won";
+                button1.Text = @"Reset";
             }
             else
             {
@@ -275,22 +270,21 @@ public partial class Classic : Form
                 ePanel.Visible = false;
                 pPanel.Visible = false;
                 label7.Visible = true;
-                label7.Text = "Both Lost";
-                button1.Text = "Reset";
+                label7.Text = @"Both Lost";
+                button1.Text = @"Reset";
             }
         }
     }
 
-
     private void button1_Click(object sender, EventArgs e)
     {
         // Crear nuevos mapas para el enemigo y el jugador con el tamaño seleccionado
-        eMap = new Map(int.Parse(numericUpDown1.Value.ToString()));
-        pMap = new Map(int.Parse(numericUpDown1.Value.ToString()));
+        _eMap = new Map(int.Parse(numericUpDown1.Value.ToString()));
+        _pMap = new Map(int.Parse(numericUpDown1.Value.ToString()));
 
         // Limpiar los mapas recién creados
-        eMap = IMap.CleanMap(eMap);
-        pMap = IMap.CleanMap(pMap);
+        _eMap = IMap.cleanMap(_eMap);
+        _pMap = IMap.cleanMap(_pMap);
 
         // Configuración inicial de la interfaz gráfica
         ePanel.Visible = true;
@@ -299,23 +293,23 @@ public partial class Classic : Form
         shipPanel.Visible = true;
 
         // Configurar el tamaño de los paneles según el tamaño de los mapas
-        var height = Size.Width / (17 + eMap.Size);
-        var width = Size.Width / (17 + eMap.Size);
-        ePanel.Size = new Size(width * eMap.Size + 20, height * eMap.Size + 20);
-        pPanel.Left = ePanel.Left + width * eMap.Size + 20;
-        pPanel.Size = new Size(width * pMap.Size + 20, height * pMap.Size + 20);
+        var height = Size.Width / (17 + _eMap.Size);
+        var width = Size.Width / (17 + _eMap.Size);
+        ePanel.Size = new Size(width * _eMap.Size + 20, height * _eMap.Size + 20);
+        pPanel.Left = ePanel.Left + width * _eMap.Size + 20;
+        pPanel.Size = new Size(width * _pMap.Size + 20, height * _pMap.Size + 20);
 
         // Inicializar contadores de barcos según los valores de los controles numericos
-        smolShip = int.Parse(numericUpDown2.Value.ToString());
-        normalShip = int.Parse(numericUpDown3.Value.ToString());
-        bigShip = int.Parse(numericUpDown4.Value.ToString());
-        biggerShip = int.Parse(numericUpDown5.Value.ToString());
+        _smolShip = int.Parse(numericUpDown2.Value.ToString());
+        _normalShip = int.Parse(numericUpDown3.Value.ToString());
+        _bigShip = int.Parse(numericUpDown4.Value.ToString());
+        _biggerShip = int.Parse(numericUpDown5.Value.ToString());
 
         // Verificar si el juego aún no ha comenzado
-        if (!gaming)
+        if (!_gaming)
         {
             // Configuración de la interfaz para el inicio del juego
-            button1.Text = "End Game";
+            button1.Text = @"End Game";
             ePanel.Enabled = false;
             pPanel.Enabled = true;
             shipPanel.Enabled = true;
@@ -324,14 +318,14 @@ public partial class Classic : Form
             button4.Enabled = true;
             button5.Enabled = true;
             button6.Enabled = true;
-            gaming = true;
+            _gaming = true;
 
             // Configuración de la interfaz para el mapa del enemigo
             var top = 10;
             var left = 10;
-            for (var i = 0; i < eMap.Size; i++)
+            for (var i = 0; i < _eMap.Size; i++)
             {
-                for (var j = 0; j < eMap.Size; j++)
+                for (var j = 0; j < _eMap.Size; j++)
                 {
                     // Crear y configurar botón del mapa del enemigo
                     var button = new Button();
@@ -343,23 +337,23 @@ public partial class Classic : Form
                     button.FlatStyle = FlatStyle.Flat;
                     button.Location = new Point(left, top);
                     button.Name = i + ";" + j;
-                    button.Text = i + ";" + j;
-                    button.Click += btnCoord_Click;
+                    button.Text = i + @";" + j;
+                    button.Click += btnCoord_Click!;
                     button.BackColor = Color.Cyan;
                     ePanel.Controls.Add(button); // Agregar botón al panel
                     top += button.Height;
                 }
 
                 left += width;
-                top -= height * eMap.Size;
+                top -= height * _eMap.Size;
             }
 
             // Configuración de la interfaz para el mapa del jugador
             top = 10;
             left = 10;
-            for (var i = 0; i < eMap.Size; i++)
+            for (var i = 0; i < _eMap.Size; i++)
             {
-                for (var j = 0; j < eMap.Size; j++)
+                for (var j = 0; j < _eMap.Size; j++)
                 {
                     // Crear y configurar botón del mapa del jugador
                     var button = new Button();
@@ -370,15 +364,15 @@ public partial class Classic : Form
                     button.FlatStyle = FlatStyle.Flat;
                     button.Location = new Point(left, top);
                     button.Name = i + ";" + j;
-                    button.Text = i + ";" + j;
-                    button.Click += btnCoord_Click;
+                    button.Text = i + @";" + j;
+                    button.Click += btnCoord_Click!;
                     button.BackColor = Color.Cyan;
                     pPanel.Controls.Add(button); // Agregar botón al panel
                     top += button.Height;
                 }
 
                 left += width;
-                top -= height * pMap.Size;
+                top -= height * _pMap.Size;
             }
         }
         else
@@ -387,9 +381,9 @@ public partial class Classic : Form
             ePanel.Visible = false;
             pPanel.Visible = false;
             shipPanel.Visible = false;
-            button1.Text = "Start";
-            gaming = false;
-            atacking = false;
+            button1.Text = @"Start";
+            _gaming = false;
+            _atacking = false;
 
             // Limpiar los controles de los paneles
             while (ePanel.Controls.Count > 0)
@@ -408,34 +402,34 @@ public partial class Classic : Form
     private void gSolo_FormClosed(object sender, FormClosedEventArgs e)
     {
         Hide();
-        Program.mainMenu.Show();
+        Program.mainMenu!.Show();
     }
 
     private void gSolo_FormClosing(object sender, FormClosingEventArgs e)
     {
         Hide();
-        Program.mainMenu.Show();
+        Program.mainMenu!.Show();
     }
 
     private void button6_Click(object sender, EventArgs e)
     {
-        if (button6.Text == "Horizontal")
+        if (button6.Text == @"Horizontal")
         {
-            button6.Text = "Vertical";
-            isHorizontal = false;
+            button6.Text = @"Vertical";
+            _isHorizontal = false;
         }
         else
         {
-            button6.Text = "Horizontal";
-            isHorizontal = true;
+            button6.Text = @"Horizontal";
+            _isHorizontal = true;
         }
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
-        if (smolShip > 0)
+        if (_smolShip > 0)
         {
-            placingSmal = true;
+            _placingSmal = true;
             shipPanel.Enabled = false;
         }
 
@@ -444,9 +438,9 @@ public partial class Classic : Form
 
     private void button3_Click(object sender, EventArgs e)
     {
-        if (normalShip > 0)
+        if (_normalShip > 0)
         {
-            placingNormal = true;
+            _placingNormal = true;
             shipPanel.Enabled = false;
         }
 
@@ -455,9 +449,9 @@ public partial class Classic : Form
 
     private void button4_Click(object sender, EventArgs e)
     {
-        if (bigShip > 0)
+        if (_bigShip > 0)
         {
-            placingBig = true;
+            _placingBig = true;
             shipPanel.Enabled = false;
         }
 
@@ -466,9 +460,9 @@ public partial class Classic : Form
 
     private void button5_Click(object sender, EventArgs e)
     {
-        if (biggerShip > 0)
+        if (_biggerShip > 0)
         {
-            placingBigger = true;
+            _placingBigger = true;
             shipPanel.Enabled = false;
         }
 
@@ -487,7 +481,7 @@ public partial class Classic : Form
         shipPanel.Enabled = false;
 
         // Establecer la bandera de ataque a verdadera
-        atacking = true;
+        _atacking = true;
 
         // Crear un generador de números aleatorios
         var r = new Random();
@@ -505,85 +499,85 @@ public partial class Classic : Form
             horisontal = r.Next(0, 1) == 0; // 0 o 1 para determinar horizontal o vertical
 
             // Obtener coordenadas aleatorias para la posición del barco
-            eX = r.Next(0, eMap.Size);
-            eY = r.Next(0, eMap.Size);
+            eX = r.Next(0, _eMap!.Size);
+            eY = r.Next(0, _eMap.Size);
             // Inicializar contador de intentos y verificar si la posición está ocupada
             attempt = 0;
-            var occupied = IMap.isOccupied(eX, eY, 2, horisontal, eMap);
+            var occupied = IMap.isOccupied(eX, eY, 2, horisontal, _eMap);
             // Repetir hasta encontrar una posición no ocupada o superar un límite de intentos
             while (occupied)
             {
-                eX = r.Next(0, eMap.Size);
-                eY = r.Next(0, eMap.Size);
-                occupied = IMap.isOccupied(eX, eY, 2, horisontal, eMap);
+                eX = r.Next(0, _eMap.Size);
+                eY = r.Next(0, _eMap.Size);
+                occupied = IMap.isOccupied(eX, eY, 2, horisontal, _eMap);
                 attempt++;
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
 
             // Colocar el barco en la posición encontrada
-            eMap = IMap.placeShip(eX, eY, 2, horisontal, eMap);
+            _eMap = IMap.placeShip(eX, eY, 2, horisontal, _eMap);
         }
 
         // Repetir el proceso para los otros tamaños de barco
         for (var i = 0; i < int.Parse(numericUpDown3.Value.ToString()); i++)
         {
             horisontal = r.Next(0, 1) == 0;
-            eX = r.Next(0, eMap.Size);
-            eY = r.Next(0, eMap.Size);
+            eX = r.Next(0, _eMap!.Size);
+            eY = r.Next(0, _eMap.Size);
             attempt = 0;
-            var occupied = IMap.isOccupied(eX, eY, 3, horisontal, eMap);
+            var occupied = IMap.isOccupied(eX, eY, 3, horisontal, _eMap);
             while (occupied)
             {
-                eX = r.Next(0, eMap.Size);
-                eY = r.Next(0, eMap.Size);
-                occupied = IMap.isOccupied(eX, eY, 3, horisontal, eMap);
+                eX = r.Next(0, _eMap.Size);
+                eY = r.Next(0, _eMap.Size);
+                occupied = IMap.isOccupied(eX, eY, 3, horisontal, _eMap);
                 attempt++;
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
 
-            eMap = IMap.placeShip(eX, eY, 3, horisontal, eMap);
+            _eMap = IMap.placeShip(eX, eY, 3, horisontal, _eMap);
         }
 
         for (var i = 0; i < int.Parse(numericUpDown4.Value.ToString()); i++)
         {
             horisontal = r.Next(0, 1) == 0;
-            eX = r.Next(0, eMap.Size);
-            eY = r.Next(0, eMap.Size);
+            eX = r.Next(0, _eMap!.Size);
+            eY = r.Next(0, _eMap.Size);
             attempt = 0;
-            var occupied = IMap.isOccupied(eX, eY, 4, horisontal, eMap);
+            var occupied = IMap.isOccupied(eX, eY, 4, horisontal, _eMap);
             while (occupied)
             {
-                eX = r.Next(0, eMap.Size);
-                eY = r.Next(0, eMap.Size);
-                occupied = IMap.isOccupied(eX, eY, 4, horisontal, eMap);
+                eX = r.Next(0, _eMap.Size);
+                eY = r.Next(0, _eMap.Size);
+                occupied = IMap.isOccupied(eX, eY, 4, horisontal, _eMap);
                 attempt++;
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
 
-            eMap = IMap.placeShip(eX, eY, 4, horisontal, eMap);
+            _eMap = IMap.placeShip(eX, eY, 4, horisontal, _eMap);
         }
 
         for (var i = 0; i < int.Parse(numericUpDown5.Value.ToString()); i++)
         {
             horisontal = r.Next(0, 1) == 0;
-            eX = r.Next(0, eMap.Size);
-            eY = r.Next(0, eMap.Size);
+            eX = r.Next(0, _eMap!.Size);
+            eY = r.Next(0, _eMap.Size);
             attempt = 0;
-            var occupied = IMap.isOccupied(eX, eY, 5, horisontal, eMap);
+            var occupied = IMap.isOccupied(eX, eY, 5, horisontal, _eMap);
             while (occupied)
             {
-                eX = r.Next(0, eMap.Size);
-                eY = r.Next(0, eMap.Size);
-                occupied = IMap.isOccupied(eX, eY, 5, horisontal, eMap);
+                eX = r.Next(0, _eMap.Size);
+                eY = r.Next(0, _eMap.Size);
+                occupied = IMap.isOccupied(eX, eY, 5, horisontal, _eMap);
                 attempt++;
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
 
-            eMap = IMap.placeShip(eX, eY, 5, horisontal, eMap);
+            _eMap = IMap.placeShip(eX, eY, 5, horisontal, _eMap);
         }
 
         // Actualizar la representación visual en el panel del enemigo

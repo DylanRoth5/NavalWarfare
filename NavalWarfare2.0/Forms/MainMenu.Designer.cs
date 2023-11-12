@@ -1,4 +1,4 @@
-﻿namespace NavalWarfareV2
+﻿namespace NavalWarfare2._0.Forms
 {
     partial class MainMenu
     {

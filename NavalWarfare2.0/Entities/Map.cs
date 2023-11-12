@@ -1,9 +1,9 @@
-namespace NavalWarfareV2.Entities;
+namespace NavalWarfare2._0.Entities;
 
 public class Map
 {
     public static int Id;
-    public static int Water = 0;
+    public const int Water = 0;
     public int[,] Matrix;
     public int Size;
 

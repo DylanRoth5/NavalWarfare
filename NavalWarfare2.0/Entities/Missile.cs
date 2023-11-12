@@ -1,10 +1,10 @@
-namespace NavalWarfareV2.Entities;
+namespace NavalWarfare2._0.Entities;
 
 public class Missile
 {
     public static int Id;
-    public static int Hit = 2;
-    public static int Sunk = 3;
+    public const int Hit = 2;
+    public const int Sunk = 3;
     public static int XPos;
     public static int YPos;
 

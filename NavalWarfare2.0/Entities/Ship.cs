@@ -1,9 +1,9 @@
-namespace NavalWarfareV2.Entities;
+namespace NavalWarfare2._0.Entities;
 
 public class Ship
 {
     public static int Id;
-    public static int Here = 1;
+    public const int Here = 1;
     public static int XPos;
     public static int YPos;
     public static int Lenght;
