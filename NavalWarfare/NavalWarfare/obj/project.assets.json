@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\UD\\.nuget\\packages\\": {}
+    "C:\\Users\\dylan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\UD\\source\\repos\\DylanRoth5\\NavalWarfare\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
+      "projectUniqueName": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
       "projectName": "NavalWarfare",
-      "projectPath": "C:\\Users\\UD\\source\\repos\\DylanRoth5\\NavalWarfare\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
-      "packagesPath": "C:\\Users\\UD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\UD\\source\\repos\\DylanRoth5\\NavalWarfare\\NavalWarfare\\NavalWarfare\\obj\\",
+      "projectPath": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalWarfare\\NavalWarfare\\NavalWarfare.csproj",
+      "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalWarfare\\NavalWarfare\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\UD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
       }
     }
   }
