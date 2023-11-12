@@ -8,6 +8,7 @@ public partial class Classic : Form
     public Classic()
     {
         InitializeComponent();
+        WindowState = FormWindowState.Maximized;
     }
 
     // Mapas para el jugador y el enemigo
