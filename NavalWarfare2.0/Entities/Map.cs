@@ -7,12 +7,13 @@ public class Map
     public int[,] Matrix;
     public int Size;
 
-    public Map(int id,int size)
+    public Map(int id, int size)
     {
         Id = id;
         Size = size;
         Matrix = new int[Size, Size];
     }
+
     public Map(int size)
     {
         Size = size;

@@ -8,13 +8,14 @@ public class Missile
     public static int XPos;
     public static int YPos;
 
-    public Missile(int id, int x,int y )
+    public Missile(int id, int x, int y)
     {
         Id = id;
         XPos = x;
         YPos = y;
     }
-    public Missile(int x,int y)
+
+    public Missile(int x, int y)
     {
         XPos = x;
         YPos = y;

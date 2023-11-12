@@ -9,7 +9,7 @@ public class Ship
     public static int Lenght;
     public static int Height;
 
-    public Ship(int id, int x,int y, int lenght, int height)
+    public Ship(int id, int x, int y, int lenght, int height)
     {
         Id = id;
         XPos = x;
@@ -17,7 +17,8 @@ public class Ship
         Lenght = lenght;
         Height = height;
     }
-    public Ship(int x,int y, int lenght, int height)
+
+    public Ship(int x, int y, int lenght, int height)
     {
         XPos = x;
         YPos = y;

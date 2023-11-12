@@ -7,20 +7,20 @@ public partial class MainMenu : Form
         InitializeComponent();
         WindowState = FormWindowState.Maximized;
     }
+
     private void lbTitle_Click(object sender, EventArgs e)
     {
-
     }
 
     private void btSolo_Click(object sender, EventArgs e)
     {
-     Program.clasic.Show();
-     Hide();
+        Program.clasic.Show();
+        Hide();
     }
 
     private void btCoop_Click(object sender, EventArgs e)
     {
-     Program.timeRush.Show();
-     Hide();
+        Program.timeRush.Show();
+        Hide();
     }
 }

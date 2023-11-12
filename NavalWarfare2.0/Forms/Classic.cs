@@ -9,9 +9,10 @@ public partial class Classic : Form
     {
         InitializeComponent();
     }
+
     // Mapas para el jugador y el enemigo
-    static public Map eMap;
-    static public Map pMap;
+    public static Map eMap;
+    public static Map pMap;
 
     // Variable que indica si la orientación de los barcos es horizontal
     public static bool isHorizontal = true;
@@ -34,9 +35,13 @@ public partial class Classic : Form
     // Variable que indica si el juego está en curso
     public static bool gaming;
 
-    private void btSoloBack_Click(object sender, EventArgs e) { }
+    private void btSoloBack_Click(object sender, EventArgs e)
+    {
+    }
 
-    private void gSolo_Load(object sender, EventArgs e) { }
+    private void gSolo_Load(object sender, EventArgs e)
+    {
+    }
 
     private void btSoloClose_Click(object sender, EventArgs e)
     {
@@ -44,7 +49,9 @@ public partial class Classic : Form
         Program.mainMenu.Show();
     }
 
-    private void label2_Click(object sender, EventArgs e) { }
+    private void label2_Click(object sender, EventArgs e)
+    {
+    }
 
     public void btnCoord_Click(object sender, EventArgs e)
     {
@@ -142,7 +149,6 @@ public partial class Classic : Form
         {
             // ... (código para la colocación de barcos)
             if (placingSmal)
-            {
                 switch (isHorizontal)
                 {
                     case true when coords[0] < pMap.Size - 1:
@@ -156,9 +162,8 @@ public partial class Classic : Form
                         placingSmal = false;
                         break;
                 }
-            }
+
             if (placingNormal)
-            {
                 switch (isHorizontal)
                 {
                     case true when coords[0] < pMap.Size - 2:
@@ -172,9 +177,8 @@ public partial class Classic : Form
                         placingNormal = false;
                         break;
                 }
-            }
+
             if (placingBig)
-            {
                 switch (isHorizontal)
                 {
                     case true when coords[0] < pMap.Size - 3:
@@ -188,9 +192,8 @@ public partial class Classic : Form
                         placingBig = false;
                         break;
                 }
-            }
+
             if (placingBigger)
-            {
                 switch (isHorizontal)
                 {
                     case true when coords[0] < pMap.Size - 4:
@@ -204,7 +207,7 @@ public partial class Classic : Form
                         placingBigger = false;
                         break;
                 }
-            }
+
             foreach (Button butn in pPanel.Controls)
             {
                 var temp2 = butn.Name.Split(';');
@@ -218,6 +221,7 @@ public partial class Classic : Form
                 else
                     butn.BackColor = Color.Cyan;
             }
+
             if (biggerShip == 0 && bigShip == 0 && normalShip == 0 && smolShip == 0)
             {
                 button7.Enabled = true;
@@ -275,7 +279,7 @@ public partial class Classic : Form
             }
         }
     }
-    
+
 
     private void button1_Click(object sender, EventArgs e)
     {
@@ -344,9 +348,11 @@ public partial class Classic : Form
                     ePanel.Controls.Add(button); // Agregar botón al panel
                     top += button.Height;
                 }
+
                 left += width;
                 top -= height * eMap.Size;
             }
+
             // Configuración de la interfaz para el mapa del jugador
             top = 10;
             left = 10;
@@ -369,6 +375,7 @@ public partial class Classic : Form
                     pPanel.Controls.Add(button); // Agregar botón al panel
                     top += button.Height;
                 }
+
                 left += width;
                 top -= height * pMap.Size;
             }
@@ -395,7 +402,6 @@ public partial class Classic : Form
 
     private void gmPanel_Paint(object sender, PaintEventArgs e)
     {
-
     }
 
     private void gSolo_FormClosed(object sender, FormClosedEventArgs e)
@@ -431,6 +437,7 @@ public partial class Classic : Form
             placingSmal = true;
             shipPanel.Enabled = false;
         }
+
         button2.Enabled = false;
     }
 
@@ -441,6 +448,7 @@ public partial class Classic : Form
             placingNormal = true;
             shipPanel.Enabled = false;
         }
+
         button3.Enabled = false;
     }
 
@@ -451,6 +459,7 @@ public partial class Classic : Form
             placingBig = true;
             shipPanel.Enabled = false;
         }
+
         button4.Enabled = false;
     }
 
@@ -461,6 +470,7 @@ public partial class Classic : Form
             placingBigger = true;
             shipPanel.Enabled = false;
         }
+
         button5.Enabled = false;
     }
 
@@ -509,9 +519,11 @@ public partial class Classic : Form
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
+
             // Colocar el barco en la posición encontrada
             eMap = IMap.placeShip(eX, eY, 2, horisontal, eMap);
         }
+
         // Repetir el proceso para los otros tamaños de barco
         for (var i = 0; i < int.Parse(numericUpDown3.Value.ToString()); i++)
         {
@@ -529,8 +541,10 @@ public partial class Classic : Form
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
+
             eMap = IMap.placeShip(eX, eY, 3, horisontal, eMap);
         }
+
         for (var i = 0; i < int.Parse(numericUpDown4.Value.ToString()); i++)
         {
             horisontal = r.Next(0, 1) == 0;
@@ -547,8 +561,10 @@ public partial class Classic : Form
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
+
             eMap = IMap.placeShip(eX, eY, 4, horisontal, eMap);
         }
+
         for (var i = 0; i < int.Parse(numericUpDown5.Value.ToString()); i++)
         {
             horisontal = r.Next(0, 1) == 0;
@@ -565,6 +581,7 @@ public partial class Classic : Form
                 if (!occupied) break;
                 if (attempt > 50) break;
             }
+
             eMap = IMap.placeShip(eX, eY, 5, horisontal, eMap);
         }
 
