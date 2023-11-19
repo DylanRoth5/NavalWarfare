@@ -1,3 +1,4 @@
+using NavalWarfareV3.Conection;
 using NavalWarfareV3.Forms;
 
 namespace NavalWarfareV3;
@@ -16,10 +17,12 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
+        Conexion.OpenConnection();
         ApplicationConfiguration.Initialize();
         MainMenu = new MainMenu();
         Classic = new Classic();
         TimeRush = new TimeRush();
         Application.Run(MainMenu);
+        Conexion.CloseConnection();
     }
 }

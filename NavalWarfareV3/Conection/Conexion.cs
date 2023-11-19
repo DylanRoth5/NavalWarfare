@@ -1,43 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 
-namespace NavalWarfareV3.Controladores
+namespace NavalWarfareV3.Conection
 {
     class Conexion
     {
-        public static string cadena = "Data Source=memotest.s3db";
-
-        private static SQLiteConnection connection = new SQLiteConnection(cadena);
+        private const string Cadena = "Data Source=Navy.db";
 
         public static void OpenConnection()
         {
-            if (connection.State == System.Data.ConnectionState.Closed)
+            if (Connection.State == System.Data.ConnectionState.Closed)
             {
-                connection.Open();
+                Connection.Open();
             }
         }
 
         public static void CloseConnection()
         {
-            connection.Close();
+            Connection.Close();
         }
 
         //constructor de la variable connection  
-        public static SQLiteConnection Connection
-        {
-            set
-            {
-                connection = value;
-            }
-            get
-            {
-                return connection;
-            }
-        }
+        private static SQLiteConnection Connection { get; } = new (Cadena);
     }
 
 }
