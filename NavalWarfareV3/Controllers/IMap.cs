@@ -1,6 +1,6 @@
-﻿using NavalWarfare2._0.Entities;
+﻿using NavalWarfareV3.Entities;
 
-namespace NavalWarfare2._0.Controllers;
+namespace NavalWarfareV3.Controllers;
 
 internal interface IMap
 {
@@ -12,7 +12,10 @@ internal interface IMap
         return map;
     }
 
-    public static bool isBombed(int x, int y, Map? map) => map!.Matrix[x, y] == Missile.Hit || map.Matrix[x, y] == Missile.Sunk;
+    public static bool isBombed(int x, int y, Map? map)
+    {
+        return map!.Matrix[x, y] == Missile.Hit || map.Matrix[x, y] == Missile.Sunk;
+    }
 
     public static bool isOccupied(int x, int y, int length, bool horizontal, Map? map)
     {

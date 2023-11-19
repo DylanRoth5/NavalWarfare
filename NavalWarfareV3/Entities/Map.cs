@@ -1,4 +1,4 @@
-namespace NavalWarfare2._0.Entities;
+namespace NavalWarfareV3.Entities;
 
 public class Map
 {

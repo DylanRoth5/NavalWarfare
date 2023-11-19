@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8f350d5-31c3-4e6a-bd6f-92203d8e08d8" name="Changes" comment="NW v2" />
+    <list default="true" id="a8f350d5-31c3-4e6a-bd6f-92203d8e08d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +15,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Forms/Classic.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dylan/OneDrive/Documents/GitHub/NavalWarfare/NavalWarfare2.0/Forms/Classic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Forms/Classic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Forms/MainMenu.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Forms/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Forms/TimeRush.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
@@ -79,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699793776396</updated>
-      <workItem from="1699793837000" duration="3774000" />
+      <workItem from="1699793837000" duration="7029000" />
     </task>
     <task id="LOCAL-00001" summary="NW v2">
       <option name="closed" value="true" />
@@ -89,7 +98,31 @@
       <option name="project" value="LOCAL" />
       <updated>1699797473743</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix">
+      <option name="closed" value="true" />
+      <created>1699798040134</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699798040134</updated>
+    </task>
+    <task id="LOCAL-00003" summary="a">
+      <option name="closed" value="true" />
+      <created>1699798094252</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699798094252</updated>
+    </task>
+    <task id="LOCAL-00004" summary="better code">
+      <option name="closed" value="true" />
+      <created>1699799377500</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699799377500</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +133,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="NW v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="NW v2" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="a" />
+    <MESSAGE value="better code" />
+    <option name="LAST_COMMIT_MESSAGE" value="better code" />
   </component>
 </project>

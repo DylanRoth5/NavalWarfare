@@ -1,6 +1,6 @@
-﻿using NavalWarfareV2;
+﻿using NavalWarfareV3;
 
-namespace NavalWarfare2._0.Forms;
+namespace NavalWarfareV3.Forms;
 
 public partial class TimeRush : Form
 {
@@ -22,7 +22,7 @@ public partial class TimeRush : Form
         foreach (var button in _shipPossitionButtons) button.Visible = false;
         restartChronometer();
         Hide();
-        Program.mainMenu!.Show();
+        Program.MainMenu!.Show();
     }
 
     private void initializeChronometer()
@@ -82,7 +82,7 @@ public partial class TimeRush : Form
             MessageBox.Show($@"¡Ganaste la partida! Tiempo: {_tiempoTranscurrido.ToString(@"mm\:ss")}");
             foreach (var button in _shipPossitionButtons) button.Visible = false;
             Hide();
-            Program.mainMenu!.Show();
+            Program.MainMenu!.Show();
             restartChronometer();
         }
     }

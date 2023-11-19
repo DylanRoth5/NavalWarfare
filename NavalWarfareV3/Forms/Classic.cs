@@ -1,8 +1,7 @@
-﻿using NavalWarfare2._0.Controllers;
-using NavalWarfare2._0.Entities;
-using NavalWarfareV2;
+﻿using NavalWarfareV3.Controllers;
+using NavalWarfareV3.Entities;
 
-namespace NavalWarfare2._0.Forms;
+namespace NavalWarfareV3.Forms;
 
 public partial class Classic : Form
 {
@@ -44,7 +43,7 @@ public partial class Classic : Form
     private void btSoloClose_Click(object sender, EventArgs e)
     {
         Hide();
-        Program.mainMenu!.Show();
+        Program.MainMenu!.Show();
     }
 
     private void label2_Click(object sender, EventArgs e)
@@ -402,13 +401,13 @@ public partial class Classic : Form
     private void gSolo_FormClosed(object sender, FormClosedEventArgs e)
     {
         Hide();
-        Program.mainMenu!.Show();
+        Program.MainMenu!.Show();
     }
 
     private void gSolo_FormClosing(object sender, FormClosingEventArgs e)
     {
         Hide();
-        Program.mainMenu!.Show();
+        Program.MainMenu!.Show();
     }
 
     private void button6_Click(object sender, EventArgs e)

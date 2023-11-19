@@ -1,6 +1,6 @@
-using NavalWarfareV2;
+using NavalWarfareV3;
 
-namespace NavalWarfare2._0.Forms;
+namespace NavalWarfareV3.Forms;
 
 public partial class MainMenu : Form
 {
@@ -16,13 +16,13 @@ public partial class MainMenu : Form
 
     private void btSolo_Click(object sender, EventArgs e)
     {
-        Program.classic!.Show();
+        Program.Classic!.Show();
         Hide();
     }
 
     private void btCoop_Click(object sender, EventArgs e)
     {
-        Program.timeRush!.Show();
+        Program.TimeRush!.Show();
         Hide();
     }
 }
