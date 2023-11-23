@@ -20,7 +20,7 @@ namespace NavalWarfareV3.Conection
         }
 
         //constructor de la variable connection  
-        private static SQLiteConnection Connection { get; } = new (Cadena);
+        public static SQLiteConnection Connection { set; get; } = new (Cadena);
     }
 
 }

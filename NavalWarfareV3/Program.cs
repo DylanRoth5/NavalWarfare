@@ -8,21 +8,28 @@ internal static class Program
     /// <summary>
     ///  The main entry point for the application.
     /// </summary>
-    /// 
+    ///
+    
+    public static bool loginOk;
+    
     public static MainMenu? MainMenu;
-
     public static Classic? Classic;
     public static TimeRush? TimeRush;
 
     [STAThread]
     private static void Main()
     {
-        Conexion.OpenConnection();
+        // Conexion.OpenConnection();
         ApplicationConfiguration.Initialize();
-        MainMenu = new MainMenu();
-        Classic = new Classic();
-        TimeRush = new TimeRush();
-        Application.Run(MainMenu);
-        Conexion.CloseConnection();
+        loginOk = false;
+        new Login().ShowDialog();
+        if (loginOk)
+        {
+            MainMenu = new MainMenu();
+            Classic = new Classic();
+            TimeRush = new TimeRush();
+            Application.Run(MainMenu);
+        }
+        // Conexion.CloseConnection();
     }
 }
