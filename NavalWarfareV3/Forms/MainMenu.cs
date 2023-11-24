@@ -1,10 +1,13 @@
 using NavalWarfareV3;
 using System.Drawing;
+using NavalWarfareV3.Entities;
+using NavalWarfareV3.Conection;
 
 namespace NavalWarfareV3.Forms;
 
 public partial class MainMenu : Form
 {
+    bool loginOk = false;
     public MainMenu()
     {
         InitializeComponent();
@@ -12,6 +15,26 @@ public partial class MainMenu : Form
 
         btCoop.BackColor = Color.FromArgb(128, Color.Black);
         btSolo.BackColor = Color.FromArgb(128, Color.Black);
+
+    }
+
+    private void validation(bool loginOk)
+    {
+        if (loginOk)
+        {
+            plLogin.Visible = false;
+            btCoop.Enabled = true;
+            btSolo.Enabled = true;
+        }
+        else
+        {
+            plLogin.Visible = true;
+            btLogin.Visible = true;
+            tbPassword.Visible = true;
+            tbUser.Visible = true;
+            btCoop.Enabled = false;
+            btSolo.Enabled = false;
+        }
     }
 
     private void lbTitle_Click(object sender, EventArgs e)
@@ -110,7 +133,76 @@ public partial class MainMenu : Form
 
     private void btSave_Click(object sender, EventArgs e)
     {
+        plPause.Visible = false;
         plCoop.Visible = false;
         plSolo.Visible = false;
+    }
+
+    private void btLogin_Click(object sender, EventArgs e)
+    {
+        Player u = new Player();
+
+        if (u.Password == Controllers.nMD5.CreateMD5(tbPassword.Text))
+        {
+            loginOk = true;
+        }
+        else
+        {
+            if (u.User.Length == 0)
+            {
+                loginOk = false;
+                MessageBox.Show("Usuario inexistente. ");
+                tbUser.Focus();
+            }
+            else
+            {
+                loginOk = false;
+                MessageBox.Show("Clave Incorrecta. ");
+                tbPassword.Focus();
+            }
+
+        }
+    }
+
+    private void llRegister_Click(object sender, EventArgs e)
+    {
+        btRegister.Visible = true;
+        tbUserR.Visible = true;
+        tbPasswordR.Visible = true;
+        btLogin.Visible = false;
+        tbPassword.Visible = false;
+        tbUser.Visible = false;
+    }
+
+    private void llRegister_MouseEnter(object sender, EventArgs e)
+    {
+        llRegister.ForeColor = Color.Silver;
+    }
+
+    private void llRegister_MouseLeave(object sender, EventArgs e)
+    {
+        llRegister.ForeColor = Color.WhiteSmoke;
+    }
+
+    private void MainMenu_Load(object sender, EventArgs e)
+    {
+        validation(loginOk);
+    }
+
+    private void btRegister_Click(object sender, EventArgs e)
+    {
+        if (tbUserR.Text.Length == 0 || tbPasswordR.Text.Length == 0)
+        {
+            MessageBox.Show("Ingrese todos los datos. ");
+        }
+        else
+        {
+            //guardo
+            Player u = new Player();
+            u.User = tbUserR.Text;
+            u.Password = tbPasswordR.Text;
+            pPlayer.Insert(u);
+            Close();
+        }
     }
 }

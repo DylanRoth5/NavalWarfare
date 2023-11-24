@@ -17,11 +17,12 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
-        Conexion.OpenConnection();
+        
         ApplicationConfiguration.Initialize();
         MainMenu = new MainMenu();
         Classic = new Classic();
         TimeRush = new TimeRush();
+        Conexion.OpenConnection();
         Application.Run(MainMenu);
         Conexion.CloseConnection();
     }

@@ -45,9 +45,20 @@
             btPauseCoop = new Button();
             plToolsCoop = new Panel();
             plPlayer1 = new Panel();
+            plLogin = new Panel();
+            tbPasswordR = new TextBox();
+            tbUserR = new TextBox();
+            btRegister = new Button();
+            llRegister = new Label();
+            tbPassword = new TextBox();
+            tbUser = new TextBox();
+            btLogin = new Button();
+            label2 = new Label();
+            label1 = new Label();
             plSolo.SuspendLayout();
             plPause.SuspendLayout();
             plCoop.SuspendLayout();
+            plLogin.SuspendLayout();
             SuspendLayout();
             // 
             // lbTitle
@@ -101,7 +112,7 @@
             plSolo.Controls.Add(btPause);
             plSolo.Controls.Add(plTools);
             plSolo.Controls.Add(plJuego);
-            plSolo.Location = new Point(810, 12);
+            plSolo.Location = new Point(849, 263);
             plSolo.Name = "plSolo";
             plSolo.Size = new Size(636, 272);
             plSolo.TabIndex = 3;
@@ -248,12 +259,135 @@
             plPlayer1.Size = new Size(441, 487);
             plPlayer1.TabIndex = 0;
             // 
+            // plLogin
+            // 
+            plLogin.BackColor = Color.FromArgb(12, 22, 48);
+            plLogin.BorderStyle = BorderStyle.FixedSingle;
+            plLogin.Controls.Add(tbPasswordR);
+            plLogin.Controls.Add(tbUserR);
+            plLogin.Controls.Add(btRegister);
+            plLogin.Controls.Add(llRegister);
+            plLogin.Controls.Add(tbPassword);
+            plLogin.Controls.Add(tbUser);
+            plLogin.Controls.Add(btLogin);
+            plLogin.Controls.Add(label2);
+            plLogin.Controls.Add(label1);
+            plLogin.Location = new Point(436, 97);
+            plLogin.Name = "plLogin";
+            plLogin.Size = new Size(312, 317);
+            plLogin.TabIndex = 6;
+            plLogin.Visible = false;
+            // 
+            // tbPasswordR
+            // 
+            tbPasswordR.Font = new Font("OCR A Extended", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tbPasswordR.Location = new Point(39, 177);
+            tbPasswordR.Name = "tbPasswordR";
+            tbPasswordR.PasswordChar = 'X';
+            tbPasswordR.Size = new Size(229, 21);
+            tbPasswordR.TabIndex = 13;
+            // 
+            // tbUserR
+            // 
+            tbUserR.Font = new Font("OCR A Extended", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tbUserR.Location = new Point(39, 83);
+            tbUserR.Name = "tbUserR";
+            tbUserR.Size = new Size(229, 21);
+            tbUserR.TabIndex = 12;
+            tbUserR.Visible = false;
+            // 
+            // btRegister
+            // 
+            btRegister.BackColor = Color.FromArgb(100, 12, 22, 98);
+            btRegister.FlatAppearance.BorderSize = 0;
+            btRegister.FlatStyle = FlatStyle.Flat;
+            btRegister.Font = new Font("OCR A Extended", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            btRegister.ForeColor = Color.WhiteSmoke;
+            btRegister.Location = new Point(150, 216);
+            btRegister.Margin = new Padding(3, 2, 3, 2);
+            btRegister.Name = "btRegister";
+            btRegister.Size = new Size(118, 35);
+            btRegister.TabIndex = 11;
+            btRegister.Text = "REGISTER";
+            btRegister.UseVisualStyleBackColor = false;
+            btRegister.Visible = false;
+            btRegister.Click += btRegister_Click;
+            // 
+            // llRegister
+            // 
+            llRegister.AutoSize = true;
+            llRegister.Font = new Font("OCR A Extended", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            llRegister.ForeColor = Color.WhiteSmoke;
+            llRegister.Location = new Point(25, 276);
+            llRegister.Name = "llRegister";
+            llRegister.Size = new Size(261, 17);
+            llRegister.TabIndex = 10;
+            llRegister.Text = "I don't have an account";
+            llRegister.Click += llRegister_Click;
+            llRegister.MouseEnter += llRegister_MouseEnter;
+            llRegister.MouseLeave += llRegister_MouseLeave;
+            // 
+            // tbPassword
+            // 
+            tbPassword.Font = new Font("OCR A Extended", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tbPassword.Location = new Point(39, 177);
+            tbPassword.Name = "tbPassword";
+            tbPassword.PasswordChar = 'X';
+            tbPassword.Size = new Size(229, 21);
+            tbPassword.TabIndex = 9;
+            // 
+            // tbUser
+            // 
+            tbUser.Font = new Font("OCR A Extended", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tbUser.Location = new Point(39, 83);
+            tbUser.Name = "tbUser";
+            tbUser.Size = new Size(229, 21);
+            tbUser.TabIndex = 8;
+            // 
+            // btLogin
+            // 
+            btLogin.BackColor = Color.FromArgb(100, 12, 22, 98);
+            btLogin.FlatAppearance.BorderSize = 0;
+            btLogin.FlatStyle = FlatStyle.Flat;
+            btLogin.Font = new Font("OCR A Extended", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            btLogin.ForeColor = Color.WhiteSmoke;
+            btLogin.Location = new Point(161, 216);
+            btLogin.Margin = new Padding(3, 2, 3, 2);
+            btLogin.Name = "btLogin";
+            btLogin.Size = new Size(107, 35);
+            btLogin.TabIndex = 7;
+            btLogin.Text = "ACEPT";
+            btLogin.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("OCR A Extended", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.WhiteSmoke;
+            label2.Location = new Point(39, 124);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 29);
+            label2.TabIndex = 5;
+            label2.Text = "PASSWORD";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("OCR A Extended", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(39, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 29);
+            label1.TabIndex = 4;
+            label1.Text = "USER";
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1184, 511);
+            Controls.Add(plLogin);
             Controls.Add(plPause);
             Controls.Add(plCoop);
             Controls.Add(plSolo);
@@ -265,10 +399,13 @@
             MinimumSize = new Size(1200, 550);
             Name = "MainMenu";
             Text = "Naval Warfare";
+            Load += MainMenu_Load;
             plSolo.ResumeLayout(false);
             plPause.ResumeLayout(false);
             plPause.PerformLayout();
             plCoop.ResumeLayout(false);
+            plLogin.ResumeLayout(false);
+            plLogin.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -291,5 +428,15 @@
         private Button btPauseCoop;
         private Panel plToolsCoop;
         private Panel plPlayer1;
+        private Panel plLogin;
+        private Label label1;
+        private Button btLogin;
+        private Label label2;
+        private TextBox tbPassword;
+        private TextBox tbUser;
+        private Label llRegister;
+        private TextBox tbPasswordR;
+        private TextBox tbUserR;
+        private Button btRegister;
     }
 }
