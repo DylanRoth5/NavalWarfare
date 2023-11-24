@@ -1,7 +1,8 @@
 using System.Data.SQLite;
 using NavalBattle.Entities;
+using NavalWarfareV3.Conection;
 
-namespace NavalBattle.Controlers;
+namespace NavalWarfareV3.Controllers;
 
 internal class IUser
 {

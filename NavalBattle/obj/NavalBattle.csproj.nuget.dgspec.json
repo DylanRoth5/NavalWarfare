@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dylan\\BlackBox\\NavalBattle\\NavalBattle.csproj": {}
+    "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalBattle\\NavalBattle.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dylan\\BlackBox\\NavalBattle\\NavalBattle.csproj": {
+    "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalBattle\\NavalBattle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dylan\\BlackBox\\NavalBattle\\NavalBattle.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalBattle\\NavalBattle.csproj",
         "projectName": "NavalBattle",
-        "projectPath": "C:\\Users\\dylan\\BlackBox\\NavalBattle\\NavalBattle.csproj",
+        "projectPath": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalBattle\\NavalBattle.csproj",
         "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dylan\\BlackBox\\NavalBattle\\obj\\",
+        "outputPath": "C:\\Users\\dylan\\OneDrive\\Documents\\GitHub\\NavalWarfare\\NavalBattle\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
