@@ -1,22 +1,21 @@
-namespace NavalWarfareV3.Entities;
-
-public class Map
+﻿namespace NavalWarfareV3.Entities
 {
-    public static int Id;
-    public const int Water = 0;
-    public int[,] Matrix;
-    public int Size;
 
-    public Map(int id, int size)
+    public class Map
     {
-        Id = id;
-        Size = size;
-        Matrix = new int[Size, Size];
-    }
+        public int Id;
+        public int Size;
+        public string Content;
+        public static int Ship = 1;
+        public static int WreckedShip = 2;
+        public static int FailedMissile = 3;
+        public int[,] Matrix;
 
-    public Map(int size)
-    {
-        Size = size;
-        Matrix = new int[Size, Size];
+        public Map()
+        {
+        }
+
+        public Map(int size) => Size = size;
+        public static int Water = 0;
     }
 }

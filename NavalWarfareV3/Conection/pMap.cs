@@ -1,5 +1,7 @@
-namespace NavalWarfareV3.Conection;
-
-public class pMap
+namespace NavalWarfareV3.Conection
 {
+    public class pMap
+    {
+    }
 }
+

@@ -1,5 +1,7 @@
-namespace NavalWarfareV3.Conection;
-
-public class pMissile
+namespace NavalWarfareV3.Conection
 {
+
+    public class pMissile
+    {
+    }
 }

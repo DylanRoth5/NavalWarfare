@@ -32,8 +32,8 @@ namespace NavalWarfareV3.Conection
         public static Player GetByUsername(string username)
         {
             Player a = new Player();
-            SQLiteCommand cmd = new SQLiteCommand("SELECT PL_ID, PL_NAME, PL_PASSWORD FROM PLAYER Where PL_NAME =  @PL_NAME");
-            cmd.Parameters.Add(new SQLiteParameter("@PL_NAME", username));
+            SQLiteCommand cmd = new SQLiteCommand("SELECT PL_ID, PL_NAME, PL_PASSWORD FROM PLAYER Where PL_NAME =  @user");
+            cmd.Parameters.Add(new SQLiteParameter("@user", username));
             cmd.Connection = Conexion.Connection;
             SQLiteDataReader obdr = cmd.ExecuteReader();
             while (obdr.Read())
@@ -49,8 +49,8 @@ namespace NavalWarfareV3.Conection
         public static Player GetById(int id)
         {
             Player a = new Player();
-            SQLiteCommand cmd = new SQLiteCommand("SELECT PL_ID, PL_NAME, PL_PASSWORD FROM PLAYER Where PL_ID =  @PL_ID");
-            cmd.Parameters.Add(new SQLiteParameter("@PL_ID", id));
+            SQLiteCommand cmd = new SQLiteCommand("SELECT PL_ID, PL_NAME, PL_PASSWORD FROM PLAYER Where PL_ID =  @id");
+            cmd.Parameters.Add(new SQLiteParameter("@id", id));
             cmd.Connection = Conexion.Connection;
             SQLiteDataReader obdr = cmd.ExecuteReader();
             while (obdr.Read())
@@ -65,9 +65,9 @@ namespace NavalWarfareV3.Conection
 
         public static void Insert(Player u)
         {
-            SQLiteCommand cmd = new SQLiteCommand("Insert Into PLAYER(PL_NAME, PL_PASSWORD) VALUES (@PL_NAME, @PL_PASSWORD)");
-            cmd.Parameters.Add(new SQLiteParameter("@PL_NAME", u.User));
-            cmd.Parameters.Add(new SQLiteParameter("@PL_PASSWORD", u.Password));
+            SQLiteCommand cmd = new SQLiteCommand("Insert Into PLAYER(PL_NAME, PL_PASSWORD) VALUES (@user, @password)");
+            cmd.Parameters.Add(new SQLiteParameter("@user", u.User));
+            cmd.Parameters.Add(new SQLiteParameter("@password", u.Password));
             cmd.Connection = Conexion.Connection;
             cmd.ExecuteNonQuery();
         }
