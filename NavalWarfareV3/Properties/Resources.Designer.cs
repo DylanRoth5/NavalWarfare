@@ -59,5 +59,15 @@ namespace NavalWarfareV3.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blog_wp_login {
+            get {
+                object obj = ResourceManager.GetObject("blog-wp-login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
